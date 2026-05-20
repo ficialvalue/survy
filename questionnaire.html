@@ -15,12 +15,17 @@
                 height: 256,
                 colorDark: '#000000',
                 colorLight: '#ffffff',
-                correctLevel: 2
+                correctLevel: 2,
+                text: ''
             };
             for (var key in options) {
                 this.options[key] = options[key];
             }
             this.el = typeof el === 'string' ? document.getElementById(el) : el;
+            
+            if (this.options.text) {
+                this.makeCode(this.options.text);
+            }
         }
 
         QRCode.prototype.makeCode = function(text) {
