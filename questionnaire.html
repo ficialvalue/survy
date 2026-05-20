@@ -1269,15 +1269,16 @@
             }
 
             try {
+                var encodedUrl = encodeURI(currentUrl);
                 qrcodeInstance = new QRCode(qrcodeContainer, {
-                    text: currentUrl,
+                    text: encodedUrl,
                     width: 256,
                     height: 256,
                     colorDark: '#1F2937',
                     colorLight: '#FFFFFF',
                     correctLevel: 2
                 });
-                console.log('QRCode generated successfully');
+                console.log('QRCode generated successfully with encoded URL');
             } catch (error) {
                 console.error('Error generating QRCode:', error);
                 qrcodeContainer.innerHTML = '<p style="color: #EF4444; text-align: center; padding: 2rem;">生成二维码失败，请刷新重试</p>';
